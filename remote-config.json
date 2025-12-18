@@ -1,0 +1,52 @@
+{
+  "overrides": {},
+  "extraWorkflows": [
+    {
+      "id": "remote_test_google",
+      "name": "🚀 Test Workflow Distant",
+      "description": "Ce workflow prouve que la mise à jour à distance fonctionne ! Il ouvre Google et prend une photo.",
+      "iconName": "Globe",
+      "tags": ["test", "remote"],
+      "version": "1.0",
+      "workflow": {
+        "drawflow": {
+          "Home": {
+            "data": {
+              "1": {
+                "id": 1,
+                "name": "start",
+                "data": { "typenode": "start" },
+                "class": "start",
+                "html": "<div class=\"node-icon\">▶️</div>",
+                "outputs": { "output_1": { "connections": [{ "node": "2", "output": "output_1" }] } },
+                "pos_x": 50,
+                "pos_y": 150
+              },
+              "2": {
+                "id": 2,
+                "name": "openUrl",
+                "data": { "url": "https://www.google.com", "typenode": "openUrl" },
+                "class": "openUrl",
+                "html": "<div class=\"node-icon\">🌐</div><div class=\"node-title\">Google</div>",
+                "inputs": { "input_1": { "connections": [{ "node": "1", "input": "output_1" }] } },
+                "outputs": { "output_1": { "connections": [{ "node": "3", "output": "output_1" }] } },
+                "pos_x": 250,
+                "pos_y": 150
+              },
+              "3": {
+                "id": 3,
+                "name": "screenshot",
+                "data": { "path": "google_remote_test.png", "typenode": "screenshot" },
+                "class": "screenshot",
+                "html": "<div class=\"node-icon\">📸</div><div class=\"node-title\">Capture</div>",
+                "inputs": { "input_1": { "connections": [{ "node": "2", "input": "output_1" }] } },
+                "pos_x": 450,
+                "pos_y": 150
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
